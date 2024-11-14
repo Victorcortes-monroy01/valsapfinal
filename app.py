@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-
+@app.route('/health')
+def health_check():
+    return jsonify(status="healthy"), 200
 @app.route('/')
 def home():
     return jsonify({"message": "Validación de Saldos Activa"})
